@@ -1,0 +1,32 @@
+<div class="container mt-4">
+    <div class="row">
+        <div class="col">
+            <h1>Slugify Url</h1>
+        </div>
+    </div>
+    <form #inputForm="ngForm">
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 mt-3">
+                <input type="text" name="websiteUrl" class="form-control" placeholder="Enter Website Url" [(ngModel)]="websiteUrl" [ngClass]="{'is-invalid': errorWebsiteUrl}" />
+                <div class="small text-center text-muted">e.g. https://mywebsite.com/</div>
+            </div>
+            <div class="col-lg-6 col-md-4 col-sm-12 col-xs-12 mt-3">
+                <input type="text" name="articleTitle" class="form-control" placeholder="Enter Article Title" [(ngModel)]="articleTitle" [ngClass]="{'is-invalid': errorArticleTitle}" />
+                <div class="small text-center text-muted">e.g. The Brown Fox Jumps Over the Lazy Dog</div>
+            </div>
+            <div class="col-lg-2 col-md-4 col-sm-12 col-xs-12 mt-3">
+                <button class="btn btn-success pull-left" (click)="onSlugify()">Slugify</button>
+                <button class="btn btn-link" (click)="onReset()">reset</button>
+            </div>
+        </div>
+    </form>
+    <div class="row mt-5" *ngIf="result.length > 0">
+        <div class="col">
+            <hr />
+            <blockquote class="blockquote text-center mt-5">
+                <p class="mb-0">{{result}}</p>
+                <footer class="blockquote-footer mt-2">Slugify Result</footer>
+            </blockquote>
+        </div>
+    </div>
+</div>
